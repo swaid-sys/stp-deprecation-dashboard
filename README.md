@@ -1,4 +1,45 @@
-# STP Service Deprecation Dashboard - Updates & Maintenance
+# STP Dashboards - Herman Kwong Organization
+
+## 🌐 Live Dashboards
+
+- **Dashboard Hub**: https://swaid-sys.github.io/stp-deprecation-dashboard/dashboard_hub.html
+- **FKP & Mesh Adoption** (NEW): https://swaid-sys.github.io/stp-deprecation-dashboard/stp_mesh_fkp_dashboard.html
+- **Path to Deprecation**: https://swaid-sys.github.io/stp-deprecation-dashboard/path_to_deprecation_dashboard.html
+- **Service Deprecation**: https://swaid-sys.github.io/stp-deprecation-dashboard/
+
+## 📊 Available Dashboards
+
+### 1. 🔵 FKP & Mesh Adoption Dashboard (NEW!)
+**URL**: [stp_mesh_fkp_dashboard.html](https://swaid-sys.github.io/stp-deprecation-dashboard/stp_mesh_fkp_dashboard.html)
+
+Comprehensive tracking of Falcon Kubernetes Platform (FKP) and Service Mesh adoption:
+- **301 total services** across STP organization
+- **51.2% Mesh adoption rate** (154 services enabled)
+- Interactive charts with animated progress bars
+- Performance comparison by STP Leader
+- Pie chart visualization
+- Key insights and recommendations
+- **Data Source**: Eng360 (Manager: Herman Kwong, excluding Gia2h)
+
+**Features**:
+- Executive summary cards
+- Mesh adoption breakdown with visual progress
+- FKP adoption tracking
+- STP leader performance rankings
+- Adoption status categories
+- Services needing attention alerts
+
+### 2. 📅 Path to Deprecation Dashboard
+**URL**: [path_to_deprecation_dashboard.html](https://swaid-sys.github.io/stp-deprecation-dashboard/path_to_deprecation_dashboard.html)
+
+Track services scheduled for deprecation with timelines and TD status.
+
+### 3. 📈 Service Deprecation Dashboard
+**URL**: [index.html](https://swaid-sys.github.io/stp-deprecation-dashboard/)
+
+Original master dashboard showing all STP services.
+
+---
 
 ## 🎯 Recent Updates (June 4, 2026)
 
@@ -25,8 +66,13 @@
 
 ```
 /Users/swaid/Downloads/FKP-Adoption-Dashboard/
-├── path_to_deprecation_dashboard.html  # Main dashboard file
+├── dashboard_hub.html                  # Hub page linking all dashboards
+├── stp_mesh_fkp_dashboard.html        # NEW: FKP & Mesh Adoption Dashboard
+├── path_to_deprecation_dashboard.html  # Path to Deprecation Dashboard
+├── index.html                          # Original Service Deprecation Dashboard
 ├── fetch-td-statuses.py                # Script to refresh TD statuses
+├── fetch-td-statuses.sh                # Shell wrapper for TD status refresh
+├── refresh_dashboard.py                # Dashboard refresh automation
 ├── td-statuses.json                    # Current TD status data
 └── README.md                           # This file
 ```

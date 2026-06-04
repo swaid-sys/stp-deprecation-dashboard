@@ -19,7 +19,7 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
         }
 
@@ -49,117 +49,148 @@
             font-size: 0.9em;
         }
 
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+        /* Org Metrics */
+        .org-metrics {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             margin-bottom: 30px;
         }
 
-        .stat-card {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .stat-card .icon {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-
-        .stat-card .label {
-            color: #666;
-            font-size: 0.9em;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-
-        .stat-card .value {
-            font-size: 2.5em;
-            font-weight: bold;
+        .org-metrics h2 {
             color: #667eea;
-        }
-
-        .stat-card .subvalue {
-            color: #999;
-            font-size: 0.9em;
-            margin-top: 5px;
-        }
-
-        .chart-container {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-
-        .chart-title {
-            font-size: 1.5em;
-            color: #333;
             margin-bottom: 20px;
-            font-weight: 600;
+            font-size: 1.8em;
         }
 
-        .progress-bar {
-            height: 40px;
-            background: #f0f0f0;
-            border-radius: 20px;
-            overflow: hidden;
-            margin-bottom: 15px;
-            position: relative;
-        }
-
-        .progress-fill {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            padding: 0 15px;
-            color: white;
-            font-weight: bold;
-            transition: width 1s ease;
-        }
-
-        .progress-fill.green {
-            background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
-        }
-
-        .progress-fill.red {
-            background: linear-gradient(90deg, #eb3349 0%, #f45c43 100%);
-        }
-
-        .progress-fill.orange {
-            background: linear-gradient(90deg, #f09819 0%, #edde5d 100%);
-        }
-
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-            color: #666;
-            font-size: 0.9em;
-        }
-
-        .table-container {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
             margin-bottom: 30px;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .metric-card .label {
+            font-size: 0.9em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .metric-card .value {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        /* Leader Table */
+        .leader-table {
             overflow-x: auto;
         }
 
+        /* Tabs */
+        .tabs {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .tab-buttons {
+            display: flex;
+            background: #f5f5f5;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 20px;
+            background: none;
+            border: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #666;
+        }
+
+        .tab-button:hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .tab-button.active {
+            background: white;
+            color: #667eea;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Status Tables */
+        .status-section {
+            margin-bottom: 40px;
+        }
+
+        .status-section h3 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .status-section h3 .count {
+            background: rgba(0,0,0,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        .status-section.completed h3 {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status-section.in-progress h3 {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .status-section.not-started h3 {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .status-section.na h3 {
+            background: #e7e7e7;
+            color: #666;
+        }
+
+        /* Tables */
         table {
             width: 100%;
             border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         th {
@@ -168,11 +199,16 @@
             padding: 15px;
             text-align: left;
             font-weight: 600;
+            font-size: 0.95em;
         }
 
         td {
-            padding: 15px;
+            padding: 12px 15px;
             border-bottom: 1px solid #f0f0f0;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
         }
 
         tr:hover {
@@ -181,8 +217,8 @@
 
         .badge {
             display: inline-block;
-            padding: 5px 12px;
-            border-radius: 15px;
+            padding: 4px 10px;
+            border-radius: 12px;
             font-size: 0.85em;
             font-weight: 600;
         }
@@ -207,23 +243,16 @@
             color: #0c5460;
         }
 
-        .insights {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .badge.secondary {
+            background: #e7e7e7;
+            color: #666;
         }
 
-        .insight-item {
-            padding: 15px;
-            margin-bottom: 15px;
-            border-left: 4px solid #667eea;
-            background: #f9f9f9;
-            border-radius: 5px;
-        }
-
-        .insight-item .icon {
-            margin-right: 10px;
+        .empty-state {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-style: italic;
         }
 
         .footer {
@@ -238,40 +267,30 @@
                 font-size: 1.8em;
             }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
+            .tab-button {
+                font-size: 0.9em;
+                padding: 15px 10px;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 10px;
             }
         }
 
-        .pie-chart {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 30px 0;
+        .note-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
         }
 
-        .pie-chart svg {
-            max-width: 300px;
-        }
-
-        .legend {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-            justify-content: center;
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .legend-color {
-            width: 20px;
-            height: 20px;
-            border-radius: 4px;
+        .note-box strong {
+            color: #856404;
         }
     </style>
 </head>
@@ -281,259 +300,219 @@
         <div class="header">
             <h1>📊 STP FKP & Mesh Adoption Dashboard</h1>
             <div class="subtitle">Herman Kwong's Organization</div>
-            <div class="timestamp">Generated: June 4, 2026 at 2:13 PM</div>
+            <div class="timestamp">Generated: June 4, 2026 at 2:30 PM</div>
         </div>
 
-        <!-- Key Metrics -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="icon">🏢</div>
-                <div class="label">Total Services</div>
-                <div class="value">301</div>
-                <div class="subvalue">Across 7 STP Leaders</div>
-            </div>
+        <!-- Organization Metrics by STP Leader -->
+        <div class="org-metrics">
+            <h2>👥 Organization Metrics by STP Leader</h2>
 
-            <div class="stat-card">
-                <div class="icon">✅</div>
-                <div class="label">Mesh Adoption</div>
-                <div class="value">51.2%</div>
-                <div class="subvalue">154 of 301 services</div>
-            </div>
-
-            <div class="stat-card">
-                <div class="icon">⚠️</div>
-                <div class="label">Mesh Disabled</div>
-                <div class="value">5</div>
-                <div class="subvalue">Services need attention</div>
-            </div>
-
-            <div class="stat-card">
-                <div class="icon">🚀</div>
-                <div class="label">Completed</div>
-                <div class="value">164</div>
-                <div class="subvalue">54.5% adoption status</div>
-            </div>
-        </div>
-
-        <!-- Mesh Adoption Chart -->
-        <div class="chart-container">
-            <div class="chart-title">🔵 Mesh Adoption Status</div>
-
-            <div class="progress-label">
-                <span>✅ Mesh Enabled (TRUE)</span>
-                <span><strong>154 services (51.2%)</strong></span>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill green" style="width: 51.2%;">51.2%</div>
-            </div>
-
-            <div class="progress-label">
-                <span>❌ Mesh Disabled (FALSE)</span>
-                <span><strong>5 services (1.7%)</strong></span>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill red" style="width: 1.7%;">1.7%</div>
-            </div>
-
-            <div class="progress-label">
-                <span>⚪ N/A</span>
-                <span><strong>142 services (47.2%)</strong></span>
-            </div>
-            <div class="progress-bar">
-                <div class="progress-fill orange" style="width: 47.2%;">47.2%</div>
-            </div>
-
-            <!-- Pie Chart -->
-            <div class="pie-chart">
-                <svg viewBox="0 0 200 200" width="300" height="300">
-                    <!-- Mesh Enabled - Green (51.2% = 184.32 degrees) -->
-                    <circle cx="100" cy="100" r="80" fill="none" stroke="#38ef7d" stroke-width="40"
-                            stroke-dasharray="256.8 512" transform="rotate(-90 100 100)"/>
-                    <!-- Mesh Disabled - Red (1.7% = 6.12 degrees) -->
-                    <circle cx="100" cy="100" r="80" fill="none" stroke="#f45c43" stroke-width="40"
-                            stroke-dasharray="8.5 512" stroke-dashoffset="-256.8" transform="rotate(-90 100 100)"/>
-                    <!-- N/A - Orange (47.2% = 169.92 degrees) -->
-                    <circle cx="100" cy="100" r="80" fill="none" stroke="#edde5d" stroke-width="40"
-                            stroke-dasharray="236.6 512" stroke-dashoffset="-265.3" transform="rotate(-90 100 100)"/>
-                    <text x="100" y="105" text-anchor="middle" font-size="24" font-weight="bold" fill="#333">51.2%</text>
-                    <text x="100" y="125" text-anchor="middle" font-size="12" fill="#666">Mesh Enabled</text>
-                </svg>
-            </div>
-
-            <div class="legend">
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #38ef7d;"></div>
-                    <span>✅ Mesh Enabled (154)</span>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="label">Total Services</div>
+                    <div class="value">301</div>
                 </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #f45c43;"></div>
-                    <span>❌ Mesh Disabled (5)</span>
+                <div class="metric-card">
+                    <div class="label">Total Leaders</div>
+                    <div class="value">7</div>
                 </div>
-                <div class="legend-item">
-                    <div class="legend-color" style="background: #edde5d;"></div>
-                    <span>⚪ N/A (142)</span>
+                <div class="metric-card">
+                    <div class="label">Mesh Enabled</div>
+                    <div class="value">154</div>
+                </div>
+                <div class="metric-card">
+                    <div class="label">Mesh Adoption</div>
+                    <div class="value">51.2%</div>
                 </div>
             </div>
+
+            <div class="leader-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STP Leader</th>
+                            <th>Total Services</th>
+                            <th>Mesh Enabled</th>
+                            <th>Mesh %</th>
+                            <th>FKP 100%</th>
+                            <th>FKP %</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderTableBody">
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <!-- STP Leader Performance -->
-        <div class="table-container">
-            <div class="chart-title">👥 Performance by STP Leader</div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>STP Leader</th>
-                        <th>Total Services</th>
-                        <th>Mesh Enabled</th>
-                        <th>Mesh Adoption %</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Ramya Subramani</strong> 🏆</td>
-                        <td>9</td>
-                        <td>7</td>
-                        <td><strong>78%</strong></td>
-                        <td><span class="badge success">Excellent</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Wolfgang Krause</strong></td>
-                        <td>13</td>
-                        <td>9</td>
-                        <td><strong>69%</strong></td>
-                        <td><span class="badge success">Good</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Ajith Jayamohan</strong></td>
-                        <td>78</td>
-                        <td>47</td>
-                        <td><strong>60%</strong></td>
-                        <td><span class="badge success">Good</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Satish Raghunath</strong></td>
-                        <td>68</td>
-                        <td>41</td>
-                        <td><strong>60%</strong></td>
-                        <td><span class="badge success">Good</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Fiaz Hossain</strong></td>
-                        <td>57</td>
-                        <td>33</td>
-                        <td><strong>58%</strong></td>
-                        <td><span class="badge info">Fair</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Garren Bellew</strong></td>
-                        <td>6</td>
-                        <td>2</td>
-                        <td><strong>33%</strong></td>
-                        <td><span class="badge warning">Needs Attention</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Claudia Santoro</strong></td>
-                        <td>70</td>
-                        <td>15</td>
-                        <td><strong>21%</strong></td>
-                        <td><span class="badge warning">Needs Attention</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Adoption Status Breakdown -->
-        <div class="table-container">
-            <div class="chart-title">📋 Services by Adoption Status</div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Status</th>
-                        <th>Count</th>
-                        <th>Percentage</th>
-                        <th>Badge</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Completed</strong></td>
-                        <td>164</td>
-                        <td>54.5%</td>
-                        <td><span class="badge success">Complete</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Path to Deprecation</strong></td>
-                        <td>71</td>
-                        <td>23.6%</td>
-                        <td><span class="badge info">Scheduled</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Can Not / Should Not Containerize</strong></td>
-                        <td>36</td>
-                        <td>12.0%</td>
-                        <td><span class="badge warning">N/A</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Completed with Clean-Up Required</strong></td>
-                        <td>24</td>
-                        <td>8.0%</td>
-                        <td><span class="badge info">Clean-up</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Not Started</strong></td>
-                        <td>3</td>
-                        <td>1.0%</td>
-                        <td><span class="badge warning">Pending</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Blocked</strong></td>
-                        <td>2</td>
-                        <td>0.7%</td>
-                        <td><span class="badge danger">Blocked</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>In Progress: Dev</strong></td>
-                        <td>1</td>
-                        <td>0.3%</td>
-                        <td><span class="badge info">In Progress</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Key Insights -->
-        <div class="insights">
-            <div class="chart-title">🎯 Key Insights & Recommendations</div>
-
-            <div class="insight-item">
-                <span class="icon">✅</span>
-                <strong>Good Mesh Progress:</strong> Over 50% of services (154/301) have Mesh enabled, showing solid adoption momentum.
+        <!-- Tabbed Content -->
+        <div class="tabs">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="switchTab('fkp')">🟢 FKP Adoption</button>
+                <button class="tab-button" onclick="switchTab('mesh')">🔵 Mesh Adoption</button>
             </div>
 
-            <div class="insight-item">
-                <span class="icon">🔴</span>
-                <strong>5 Services with Mesh Disabled:</strong> These services (astmaster, cloudmap-scanners, privateconnect-inbound-dp, publicproxy, sitebridge) need investigation.
+            <!-- FKP Tab -->
+            <div id="fkp-tab" class="tab-content active">
+                <div class="note-box">
+                    <strong>📝 Note:</strong> FKP adoption data is currently showing as N/A because the column in your Google Sheet is empty.
+                    To populate this data, download the latest CSV from Eng360 (Manager: Herman Kwong, excluding Gia2h) and update your sheet,
+                    or run: <code>python3 auto_dashboard_refresh.py your_eng360_export.csv</code>
+                </div>
+
+                <!-- Completed -->
+                <div class="status-section completed">
+                    <h3>
+                        <span>✅ Completed (100% FKP Adoption)</span>
+                        <span class="count" id="fkp-completed-count">0</span>
+                    </h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Service Name</th>
+                                <th>STP Leader</th>
+                                <th>FKP Instances</th>
+                                <th>Total Instances</th>
+                                <th>Mesh Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fkp-completed-body">
+                            <tr><td colspan="5" class="empty-state">No services with 100% FKP adoption yet</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- In Progress -->
+                <div class="status-section in-progress">
+                    <h3>
+                        <span>⚠️ In Progress (0-100% FKP Adoption)</span>
+                        <span class="count" id="fkp-inprogress-count">0</span>
+                    </h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Service Name</th>
+                                <th>STP Leader</th>
+                                <th>FKP %</th>
+                                <th>FKP Instances</th>
+                                <th>Total Instances</th>
+                                <th>Mesh Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fkp-inprogress-body">
+                            <tr><td colspan="6" class="empty-state">No services in progress</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Not Started -->
+                <div class="status-section not-started">
+                    <h3>
+                        <span>❌ Not Started (0% FKP Adoption)</span>
+                        <span class="count" id="fkp-notstarted-count">0</span>
+                    </h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Service Name</th>
+                                <th>STP Leader</th>
+                                <th>Total Instances</th>
+                                <th>Mesh Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fkp-notstarted-body">
+                            <tr><td colspan="4" class="empty-state">No services at 0%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- N/A -->
+                <div class="status-section na">
+                    <h3>
+                        <span>⚪ N/A (No FKP Data Available)</span>
+                        <span class="count" id="fkp-na-count">301</span>
+                    </h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Service Name</th>
+                                <th>STP Leader</th>
+                                <th>FKP Adoption Status</th>
+                                <th>Mesh Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="fkp-na-body">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <div class="insight-item">
-                <span class="icon">🏆</span>
-                <strong>Top Performer:</strong> Ramya Subramani leads with 78% Mesh adoption across 9 services.
-            </div>
+            <!-- Mesh Tab -->
+            <div id="mesh-tab" class="tab-content">
+                <!-- Completed (TRUE) -->
+                <div class="status-section completed">
+                    <h3>
+                        <span>✅ Mesh Enabled (TRUE)</span>
+                        <span class="count" id="mesh-enabled-count">154</span>
+                    </h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Service Name</th>
+                                <th>STP Leader</th>
+                                <th>FKP Adoption Status</th>
+                                <th>Mesh Adoption Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mesh-enabled-body">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
 
-            <div class="insight-item">
-                <span class="icon">⚠️</span>
-                <strong>Attention Needed:</strong> Claudia Santoro's services (70 total) show 21% Mesh adoption - opportunity for improvement.
-            </div>
+                <!-- Disabled (FALSE) -->
+                <div class="status-section not-started">
+                    <h3>
+                        <span>❌ Mesh Disabled (FALSE)</span>
+                        <span class="count" id="mesh-disabled-count">5</span>
+                    </h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Service Name</th>
+                                <th>STP Leader</th>
+                                <th>FKP Adoption Status</th>
+                                <th>Mesh Adoption Status</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mesh-disabled-body">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
 
-            <div class="insight-item">
-                <span class="icon">📈</span>
-                <strong>FKP Data Update Required:</strong> FKP adoption percentages need to be populated from Eng360 for complete tracking.
-            </div>
-
-            <div class="insight-item">
-                <span class="icon">✨</span>
-                <strong>Overall Status:</strong> 164 services (54.5%) marked as "Completed" - strong progress toward adoption goals.
+                <!-- N/A -->
+                <div class="status-section na">
+                    <h3>
+                        <span>⚪ N/A (Not Applicable for Mesh)</span>
+                        <span class="count" id="mesh-na-count">142</span>
+                    </h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Service Name</th>
+                                <th>STP Leader</th>
+                                <th>FKP Adoption Status</th>
+                                <th>Mesh Adoption Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mesh-na-body">
+                            <!-- Will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 
@@ -543,22 +522,3586 @@
             <p>Data Source: FKP & Mesh Onboarding - Commercial Sheet</p>
             <p>Filters: Manager = Herman Kwong, Excluding Gia2h</p>
             <p style="margin-top: 10px; font-size: 0.9em;">
-                📊 To refresh this dashboard, run: <code>python3 auto_dashboard_refresh.py your_eng360_export.csv</code>
+                🔗 Live at: <a href="https://swaid-sys.github.io/stp-deprecation-dashboard/stp_mesh_fkp_dashboard.html" style="color: white;">
+                    swaid-sys.github.io/stp-deprecation-dashboard
+                </a>
             </p>
         </div>
     </div>
 
     <script>
-        // Animate progress bars on load
-        window.addEventListener('load', function() {
-            const progressBars = document.querySelectorAll('.progress-fill');
-            progressBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
+        // Load service data from the embedded JSON
+        // This will be populated with actual data from your Google Sheet
+        const services = [
+  {
+    "service_name": "afiniti",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "api-fetcher",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "aquila",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "artano",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "ast-controller",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "ast-scan-worker",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "ast-tools",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "astcenter",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "astciservice",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "astcrawler",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "astmaster",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "FALSE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "astnexus",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "astprisma",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "astscscanner",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "astworker",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "atd-service",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "bastion",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "bastionrestricted",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "bghostaccess",
+    "stp_leader": "Garren Bellew",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "bharosa",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "blackhawk",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "breakglass",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "bulwark",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "c2c-hf",
+    "stp_leader": "Ramya Subramani",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "c4ssh",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "cafe",
+    "stp_leader": "Ramya Subramani",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "cag-bigip",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-bootstrap",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-caas",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-cbatch",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-changecourier-importer",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-cloudmonitor",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-coreapp",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-coreapp-bootstrap",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-coremonitor",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-dbschema",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-ffx",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-fileforce",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-hydrator",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "cag-mq",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-podtap-api",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Not Started"
+  },
+  {
+    "service_name": "cag-podtap-ui",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Not Started"
+  },
+  {
+    "service_name": "cag-search",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cag-secret-seeding",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cascade",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "cerebrus",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "certificateservices",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cloudatlas-dynamo-datastore",
+    "stp_leader": "Ramya Subramani",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "cloudcps",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "cloudcps-bootstrap",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "cloudhsm",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "cloudmap-api",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cloudmap-scanners",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "FALSE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "containersec-console",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "containersec-eks",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "containersec-infra",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "containersec-new",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "controlplane",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "controlplane-ui",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "cosp",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "csn-dataplane",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "ctscan",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "ctscan-harbinger",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "ctscan-ois",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "cxbastionast",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "data-fabric-api",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "data-lineage-link",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "data-observability-svc",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "data-observability-ui",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "data-quality-outcome-link",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "data-quality-service",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "data-resilience",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Will Not Move to Mesh: Managed Service"
+  },
+  {
+    "service_name": "data-resilience-restore",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "defender",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "delphi-app",
+    "stp_leader": "Wolfgang Krause",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "dnr-airflow",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "dnr-k2p",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "dnr-k2s",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "dnr-molokai",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "dnr-normalizer",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "dnr-orion",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "dnr-partitioner",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "dnr-search-molokai",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "dnr-search-troll",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "dnr-streamingsearch",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "dnrdp-nova",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "dnrdp-orch",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "dnrdp-orion",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "dream-activity-worker",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "dream-api",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "dream-weaver",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "dream-workflow-worker",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "e2ev",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "eaas",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "edge",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "In Progress: Dev",
+    "mesh_adoption_status": "Will Not Move to Mesh: Full Routing Ownership Needed"
+  },
+  {
+    "service_name": "egw-controlplane",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "epig",
+    "stp_leader": "Garren Bellew",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "eureka",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "fedx-noah-agent",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "gack-parser",
+    "stp_leader": "Wolfgang Krause",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "gid-service-hf",
+    "stp_leader": "Ramya Subramani",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "gidruntime",
+    "stp_leader": "Ramya Subramani",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "grokker",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "guan",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "havc",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "hyperguard-driver",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "iam-prod-platform-ui",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "iamportal",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "identity-360",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "identity-token-service",
+    "stp_leader": "Ramya Subramani",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "idm-engine",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "idm-store",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Will Not Move to Mesh: Infra Only Service"
+  },
+  {
+    "service_name": "inbound-mta",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "inetmon",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "ipam",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "ipreputation",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "iris",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "janus",
+    "stp_leader": "Garren Bellew",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "jit",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "In Progress: Dev"
+  },
+  {
+    "service_name": "jit-ssh-dummy",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "jit-sudo-dummy",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "k2kblackjackjob",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "k2kkeybroker",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "kaaskeymaker",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "kaaskeywatcher",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "kaasmasterkdc",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "kaasslavekdc",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "kaaswebhook",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "kavach",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "kepler-druid",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "kepler-spark",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "kerberos-appauth",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Temporarily Blocked: Will Re-Visit in 264"
+  },
+  {
+    "service_name": "kerberos-auth",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Temporarily Blocked: Will Re-Visit in 264"
+  },
+  {
+    "service_name": "keyescrow",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "kingfisher",
+    "stp_leader": "Garren Bellew",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "kms",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "kms-fd-unified-services",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "kmsdb-backup-validation",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "kmsinfra",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Will Not Move to Mesh: Not a Real Service"
+  },
+  {
+    "service_name": "kodama",
+    "stp_leader": "Wolfgang Krause",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "kraken",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "ksapiserver",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "kwaf-driver",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "l7-unified-controller",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "l7waf-reporter",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "lime",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "log-governance-service",
+    "stp_leader": "Wolfgang Krause",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "log-proxy",
+    "stp_leader": "Ramya Subramani",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "login",
+    "stp_leader": "Ramya Subramani",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "lpt",
+    "stp_leader": "Wolfgang Krause",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "madkub-injection-webhook",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Will Not Move to Mesh: Mutating Webhook to Bring Up Service"
+  },
+  {
+    "service_name": "madkub-watchdog",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Will Not Move to Mesh: Integration"
+  },
+  {
+    "service_name": "magister",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "mail-egress",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "mailcatcher-dns",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "matlock",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "matlockauthrad",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "matlockauthsync",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "matlockauthval",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "matlockplex",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "menshen",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "metadata",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "metadata-db",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "metisfalcon",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "midgard",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "ml-feature-registry",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "mta-gateway",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "mta-proxy",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "mtaproxy-lambda-service",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "network-access-controller",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "network-policies-generation",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "offline-jumphost",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "onyx-agent",
+    "stp_leader": "Wolfgang Krause",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "onyx-engine",
+    "stp_leader": "Wolfgang Krause",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "onyx-engine-control-pod",
+    "stp_leader": "Wolfgang Krause",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "orchengine",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "orchestrator",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "pace-api",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "pace-compass",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "pcsk-falcon-secds-sync-job",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "pcsk-firebom-sync-job",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "pcsk-jit",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "pcsk-just-in-time",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "pcsk-policy-engine",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "pcsk-policy-store",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "pcsk-secds-sync-job",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Will Not Move to Mesh: Does Not Serve Traffic"
+  },
+  {
+    "service_name": "pcsk-test-target",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "pcskam",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "perimeter-provisioner",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "perimetercdn",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "perimetercdn-persistence",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "pki-udp",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "pkicdp",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "pkicontroller",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "pkiinfra",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "pl-api-dev",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "policy-releaser",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Will Not Move to Mesh: Not a Real Service"
+  },
+  {
+    "service_name": "portuno",
+    "stp_leader": "Garren Bellew",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "pra",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "pradsm",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "praise",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "praui",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "pravm",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "prazk",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "private-linker-agent",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "private-linker-lambda",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "private-linker-watchdog",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "privateconnect-controlplane",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "privateconnect-data-plane",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "privateconnect-inbound-dp",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "FALSE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "privateconnect-outbound-dp",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Not Started",
+    "mesh_adoption_status": "Not Started"
+  },
+  {
+    "service_name": "public-ipam",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "publicproxy",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "FALSE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Not Started",
+    "mesh_adoption_status": "Not Started"
+  },
+  {
+    "service_name": "quantumk",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "In Progress: Pre-Prod"
+  },
+  {
+    "service_name": "quantumkgia2h",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "quantumks2s",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "In Progress: Pre-Prod"
+  },
+  {
+    "service_name": "quark",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "rabbitmq-external-sfmp",
+    "stp_leader": "Wolfgang Krause",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Will Not Move to Mesh: Not a Real Service"
+  },
+  {
+    "service_name": "radius",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "rag-bot",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "rag-evaluation",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "rag-generation",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "rag-suite",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "raphty",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "raptorsvc",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "raven",
+    "stp_leader": "Garren Bellew",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "safe-action",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "safe-daemonset",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "safe-hub",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "safe-monitor",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "safe-postman",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "sagebot",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "secds",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Not Started",
+    "mesh_adoption_status": "Not Started"
+  },
+  {
+    "service_name": "secds389",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "secdsk8s",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "seciamsvc",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "secportal",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "secure-agility-xtraguard",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "security-hub",
+    "stp_leader": "Wolfgang Krause",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "security-hub-platform",
+    "stp_leader": "Wolfgang Krause",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "security-hub-platform-tools",
+    "stp_leader": "Wolfgang Krause",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "seidr",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "sitebridge",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "FALSE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "smsapi",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "smscanary",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "smscps",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Will Not Move to Mesh: 1P Service"
+  },
+  {
+    "service_name": "smsekm-skb",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "smszk",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "snykbroker",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "soter",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "soterfalcon",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "sotergcp",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "stampy",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Blocked",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "stampy-webhook",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Blocked",
+    "mesh_adoption_status": "Blocked"
+  },
+  {
+    "service_name": "sthsm-gcp",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "supplychainsec-updates-pipeline",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "suraksha",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "tc-service",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "tesoro",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "test-iam-prod-onboarding",
+    "stp_leader": "Claudia Santoro",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Will Not Move to Mesh: Team Does Not Find Value"
+  },
+  {
+    "service_name": "threat-canvas-backend",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "threatlock",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "tip-flink-operator",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "tip-slams",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "tip-usdl-iceberg-rest-proxy",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "tip-usdl-ingestion-platform",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "tip-usdl-janus",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "tip-usdl-janus-infra",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Can Not / Should Not Containerize",
+    "mesh_adoption_status": "Can Not / Should Not Containerize"
+  },
+  {
+    "service_name": "tip-usdl-midgard",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "tip-usdl-streaming-platform",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "tm-tool",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "tvm-db",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "tvm-db-automation",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "tyr-svc",
+    "stp_leader": "Ajith Jayamohan",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "ura",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "urawatchdog",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "vaas-verificationengine",
+    "stp_leader": "Ramya Subramani",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "vault",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "vault-accelerator",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "vault-canary",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "vault-config",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "vault-config-canary",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "vault-injection-test-app",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "vault-path-manager",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "vault-path-scanner",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "vault-policy-manager",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "vault-role-reconciler",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "vault-version-publisher",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "vaultwebhook",
+    "stp_leader": "Fiaz Hossain",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Will Not Move to Mesh: Mutating Webhook to Bring Up Service"
+  },
+  {
+    "service_name": "waas-control-plane",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Will Not Move to Mesh: Not a Real Service"
+  },
+  {
+    "service_name": "waas-controller",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "waas-elasticsearch",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "waas-events-fetcher",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "waas-gui",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "waas-logstash",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "waas-profiles-crud",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "waas-rate-limiter",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed with Clean-Up Required",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "waas-redis",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  },
+  {
+    "service_name": "waas-validation-controller",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Will Not Move to Mesh: Mutating Webhook to Bring Up Service"
+  },
+  {
+    "service_name": "web-violation-report",
+    "stp_leader": "Wolfgang Krause",
+    "mesh_status": "N/A",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Path to Deprecation",
+    "mesh_adoption_status": "Path to Deprecation"
+  },
+  {
+    "service_name": "zetasvc",
+    "stp_leader": "Satish Raghunath",
+    "mesh_status": "TRUE",
+    "fkp_pct": null,
+    "fkp_current": null,
+    "fkp_total": null,
+    "fkp_text": "",
+    "fkp_adoption_status": "Completed",
+    "mesh_adoption_status": "Completed"
+  }
+];
+
+        // Calculate metrics by leader
+        function calculateLeaderMetrics() {
+            const leaderStats = {};
+
+            services.forEach(svc => {
+                const leader = svc.stp_leader || 'Unknown';
+                if (!leaderStats[leader]) {
+                    leaderStats[leader] = {
+                        total: 0,
+                        meshEnabled: 0,
+                        fkp100: 0
+                    };
+                }
+                leaderStats[leader].total++;
+                if (svc.mesh_status === 'TRUE') {
+                    leaderStats[leader].meshEnabled++;
+                }
+                if (svc.fkp_pct === 100) {
+                    leaderStats[leader].fkp100++;
+                }
             });
+
+            return leaderStats;
+        }
+
+        // Populate leader table
+        function populateLeaderTable() {
+            const stats = calculateLeaderMetrics();
+            const tbody = document.getElementById('leaderTableBody');
+            tbody.innerHTML = '';
+
+            // Sort by total services desc
+            const sorted = Object.entries(stats).sort((a, b) => b[1].total - a[1].total);
+
+            sorted.forEach(([leader, data]) => {
+                const meshPct = ((data.meshEnabled / data.total) * 100).toFixed(0);
+                const fkpPct = ((data.fkp100 / data.total) * 100).toFixed(0);
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${leader}</strong></td>
+                    <td>${data.total}</td>
+                    <td>${data.meshEnabled}</td>
+                    <td><strong>${meshPct}%</strong></td>
+                    <td>${data.fkp100}</td>
+                    <td><strong>${fkpPct}%</strong></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Get badge HTML
+        function getBadge(status) {
+            if (!status) return '<span class="badge secondary">N/A</span>';
+
+            const statusMap = {
+                'Completed': 'success',
+                'Path to Deprecation': 'info',
+                'In Progress': 'warning',
+                'Not Started': 'danger',
+                'Blocked': 'danger'
+            };
+
+            let badgeClass = 'secondary';
+            for (const [key, value] of Object.entries(statusMap)) {
+                if (status.includes(key)) {
+                    badgeClass = value;
+                    break;
+                }
+            }
+
+            return `<span class="badge ${badgeClass}">${status}</span>`;
+        }
+
+        // Get mesh badge
+        function getMeshBadge(status) {
+            if (status === 'TRUE') return '<span class="badge success">TRUE</span>';
+            if (status === 'FALSE') return '<span class="badge danger">FALSE</span>';
+            return '<span class="badge secondary">N/A</span>';
+        }
+
+        // Populate FKP tables
+        function populateFKPTables() {
+            const completed = services.filter(s => s.fkp_pct === 100);
+            const inProgress = services.filter(s => s.fkp_pct !== null && s.fkp_pct > 0 && s.fkp_pct < 100);
+            const notStarted = services.filter(s => s.fkp_pct === 0);
+            const na = services.filter(s => s.fkp_pct === null);
+
+            // Update counts
+            document.getElementById('fkp-completed-count').textContent = completed.length;
+            document.getElementById('fkp-inprogress-count').textContent = inProgress.length;
+            document.getElementById('fkp-notstarted-count').textContent = notStarted.length;
+            document.getElementById('fkp-na-count').textContent = na.length;
+
+            // Populate completed
+            const completedBody = document.getElementById('fkp-completed-body');
+            if (completed.length > 0) {
+                completedBody.innerHTML = completed.map(s => `
+                    <tr>
+                        <td><strong>${s.service_name}</strong></td>
+                        <td>${s.stp_leader || 'Unknown'}</td>
+                        <td>${s.fkp_current}</td>
+                        <td>${s.fkp_total}</td>
+                        <td>${getMeshBadge(s.mesh_status)}</td>
+                    </tr>
+                `).join('');
+            }
+
+            // Populate in progress
+            const inProgressBody = document.getElementById('fkp-inprogress-body');
+            if (inProgress.length > 0) {
+                inProgressBody.innerHTML = inProgress.map(s => `
+                    <tr>
+                        <td><strong>${s.service_name}</strong></td>
+                        <td>${s.stp_leader || 'Unknown'}</td>
+                        <td><strong>${s.fkp_pct}%</strong></td>
+                        <td>${s.fkp_current}</td>
+                        <td>${s.fkp_total}</td>
+                        <td>${getMeshBadge(s.mesh_status)}</td>
+                    </tr>
+                `).join('');
+            }
+
+            // Populate not started
+            const notStartedBody = document.getElementById('fkp-notstarted-body');
+            if (notStarted.length > 0) {
+                notStartedBody.innerHTML = notStarted.map(s => `
+                    <tr>
+                        <td><strong>${s.service_name}</strong></td>
+                        <td>${s.stp_leader || 'Unknown'}</td>
+                        <td>${s.fkp_total}</td>
+                        <td>${getMeshBadge(s.mesh_status)}</td>
+                    </tr>
+                `).join('');
+            }
+
+            // Populate N/A
+            const naBody = document.getElementById('fkp-na-body');
+            if (na.length > 0) {
+                const displayLimit = 100;
+                const naHtml = na.slice(0, displayLimit).map(s => `
+                    <tr>
+                        <td><strong>${s.service_name}</strong></td>
+                        <td>${s.stp_leader || 'Unknown'}</td>
+                        <td>${getBadge(s.fkp_adoption_status)}</td>
+                        <td>${getMeshBadge(s.mesh_status)}</td>
+                    </tr>
+                `).join('');
+
+                if (na.length > displayLimit) {
+                    naBody.innerHTML = naHtml + `
+                        <tr>
+                            <td colspan="4" class="empty-state">
+                                ... and ${na.length - displayLimit} more services (showing first ${displayLimit})
+                            </td>
+                        </tr>
+                    `;
+                } else {
+                    naBody.innerHTML = naHtml;
+                }
+            }
+        }
+
+        // Populate Mesh tables
+        function populateMeshTables() {
+            const enabled = services.filter(s => s.mesh_status === 'TRUE');
+            const disabled = services.filter(s => s.mesh_status === 'FALSE');
+            const na = services.filter(s => s.mesh_status !== 'TRUE' && s.mesh_status !== 'FALSE');
+
+            // Update counts
+            document.getElementById('mesh-enabled-count').textContent = enabled.length;
+            document.getElementById('mesh-disabled-count').textContent = disabled.length;
+            document.getElementById('mesh-na-count').textContent = na.length;
+
+            // Populate enabled
+            const enabledBody = document.getElementById('mesh-enabled-body');
+            const displayLimit = 100;
+            const enabledHtml = enabled.slice(0, displayLimit).map(s => `
+                <tr>
+                    <td><strong>${s.service_name}</strong></td>
+                    <td>${s.stp_leader || 'Unknown'}</td>
+                    <td>${getBadge(s.fkp_adoption_status)}</td>
+                    <td>${getBadge(s.mesh_adoption_status)}</td>
+                </tr>
+            `).join('');
+
+            if (enabled.length > displayLimit) {
+                enabledBody.innerHTML = enabledHtml + `
+                    <tr>
+                        <td colspan="4" class="empty-state">
+                            ... and ${enabled.length - displayLimit} more services (showing first ${displayLimit})
+                        </td>
+                    </tr>
+                `;
+            } else {
+                enabledBody.innerHTML = enabledHtml;
+            }
+
+            // Populate disabled
+            const disabledBody = document.getElementById('mesh-disabled-body');
+            if (disabled.length > 0) {
+                disabledBody.innerHTML = disabled.map(s => `
+                    <tr>
+                        <td><strong>${s.service_name}</strong></td>
+                        <td>${s.stp_leader || 'Unknown'}</td>
+                        <td>${getBadge(s.fkp_adoption_status)}</td>
+                        <td>${getBadge(s.mesh_adoption_status)}</td>
+                        <td><em>Investigation recommended</em></td>
+                    </tr>
+                `).join('');
+            }
+
+            // Populate N/A
+            const naBody = document.getElementById('mesh-na-body');
+            const naHtml = na.slice(0, displayLimit).map(s => `
+                <tr>
+                    <td><strong>${s.service_name}</strong></td>
+                    <td>${s.stp_leader || 'Unknown'}</td>
+                    <td>${getBadge(s.fkp_adoption_status)}</td>
+                    <td>${getBadge(s.mesh_adoption_status)}</td>
+                </tr>
+            `).join('');
+
+            if (na.length > displayLimit) {
+                naBody.innerHTML = naHtml + `
+                    <tr>
+                        <td colspan="4" class="empty-state">
+                            ... and ${na.length - displayLimit} more services (showing first ${displayLimit})
+                        </td>
+                    </tr>
+                `;
+            } else {
+                naBody.innerHTML = naHtml;
+            }
+        }
+
+        // Switch tabs
+        function switchTab(tab) {
+            // Update buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Update content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tab + '-tab').classList.add('active');
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', function() {
+            populateLeaderTable();
+            populateFKPTables();
+            populateMeshTables();
         });
     </script>
 </body>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STP Dashboards - Herman Kwong Org</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .header {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.3em;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+        }
+
+        .dashboard-card .icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-card h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .dashboard-card .description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .dashboard-card .metrics {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .metric {
+            flex: 1;
+        }
+
+        .metric .label {
+            color: #999;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .metric .value {
+            color: #667eea;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        .badge.new {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge.active {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid white;
+        }
+
+        .info-box {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .info-box p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 STP Dashboards</h1>
+            <div class="subtitle">Herman Kwong's Organization - Service Tracking & Adoption Metrics</div>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- FKP & Mesh Adoption Dashboard -->
+            <a href="stp_mesh_fkp_dashboard.html" class="dashboard-card">
+                <div class="icon">🔵</div>
+                <h2>FKP & Mesh Adoption</h2>
+                <span class="badge new">NEW</span>
+                <div class="description">
+                    Comprehensive view of FKP and Mesh adoption across all 301 STP services.
+                    Track adoption rates, view leader performance, and identify services needing attention.
+                </div>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="label">Total Services</div>
+                        <div class="value">301</div>
+                    </div>
+                    <div class="metric">
+                        <div class="label">Mesh Adoption</div>
+                        <div class="value">51.2%</div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Path to Deprecation Dashboard -->
+            <a href="path_to_deprecation_dashboard.html" class="dashboard-card">
+                <div class="icon">📅</div>
+                <h2>Path to Deprecation</h2>
+                <span class="badge active">ACTIVE</span>
+                <div class="description">
+                    Track services on path to deprecation with timelines and status updates.
+                    Monitor Technical Debt (TD) items and ensure timely completion.
+                </div>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="label">Services</div>
+                        <div class="value">71</div>
+                    </div>
+                    <div class="metric">
+                        <div class="label">Status</div>
+                        <div class="value">Live</div>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Original Dashboard -->
+            <a href="index.html" class="dashboard-card">
+                <div class="icon">📈</div>
+                <h2>Service Deprecation</h2>
+                <span class="badge active">ACTIVE</span>
+                <div class="description">
+                    Original comprehensive dashboard showing all STP services with
+                    deprecation timelines, statuses, and detailed tracking information.
+                </div>
+                <div class="metrics">
+                    <div class="metric">
+                        <div class="label">View</div>
+                        <div class="value">Full</div>
+                    </div>
+                    <div class="metric">
+                        <div class="label">Type</div>
+                        <div class="value">Master</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="info-box">
+            <h3>📋 About These Dashboards</h3>
+            <p>
+                <strong>FKP & Mesh Adoption:</strong> Real-time tracking of Falcon Kubernetes Platform (FKP)
+                and Service Mesh adoption across Herman Kwong's STP organization. Data sourced from Eng360
+                with filters for Manager: Herman Kwong, excluding Gia2h environment.
+            </p>
+            <p>
+                <strong>Path to Deprecation:</strong> Services scheduled for deprecation with Technical Debt
+                tracking and timeline monitoring. Helps ensure smooth transitions and timely completion.
+            </p>
+            <p>
+                <strong>Service Deprecation:</strong> Master dashboard providing complete overview of all
+                STP services, their current status, and adoption progress.
+            </p>
+        </div>
+
+        <div class="footer">
+            <p><strong>Last Updated:</strong> June 4, 2026</p>
+            <p><strong>Data Source:</strong> Eng360 & Google Sheets</p>
+            <p style="margin-top: 15px;">
+                <a href="https://github.com/swaid-sys/stp-deprecation-dashboard" target="_blank">
+                    View on GitHub
+                </a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STP FKP & Mesh Adoption Dashboard - Herman Kwong Org</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .header .timestamp {
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .stat-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .label {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .stat-card .value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-card .subvalue {
+            color: #999;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .chart-title {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .progress-bar {
+            height: 40px;
+            background: #f0f0f0;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 15px;
+            color: white;
+            font-weight: bold;
+            transition: width 1s ease;
+        }
+
+        .progress-fill.green {
+            background: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .progress-fill.red {
+            background: linear-gradient(90deg, #eb3349 0%, #f45c43 100%);
+        }
+
+        .progress-fill.orange {
+            background: linear-gradient(90deg, #f09819 0%, #edde5d 100%);
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .table-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        tr:hover {
+            background: #f9f9f9;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .badge.success {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge.warning {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .badge.danger {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .badge.info {
+            background: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .insights {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .insight-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            background: #f9f9f9;
+            border-radius: 5px;
+        }
+
+        .insight-item .icon {
+            margin-right: 10px;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 30px;
+            padding: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pie-chart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .pie-chart svg {
+            max-width: 300px;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>📊 STP FKP & Mesh Adoption Dashboard</h1>
+            <div class="subtitle">Herman Kwong's Organization</div>
+            <div class="timestamp">Generated: June 4, 2026 at 2:13 PM</div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="icon">🏢</div>
+                <div class="label">Total Services</div>
+                <div class="value">301</div>
+                <div class="subvalue">Across 7 STP Leaders</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="icon">✅</div>
+                <div class="label">Mesh Adoption</div>
+                <div class="value">51.2%</div>
+                <div class="subvalue">154 of 301 services</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="icon">⚠️</div>
+                <div class="label">Mesh Disabled</div>
+                <div class="value">5</div>
+                <div class="subvalue">Services need attention</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="icon">🚀</div>
+                <div class="label">Completed</div>
+                <div class="value">164</div>
+                <div class="subvalue">54.5% adoption status</div>
+            </div>
+        </div>
+
+        <!-- Mesh Adoption Chart -->
+        <div class="chart-container">
+            <div class="chart-title">🔵 Mesh Adoption Status</div>
+
+            <div class="progress-label">
+                <span>✅ Mesh Enabled (TRUE)</span>
+                <span><strong>154 services (51.2%)</strong></span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill green" style="width: 51.2%;">51.2%</div>
+            </div>
+
+            <div class="progress-label">
+                <span>❌ Mesh Disabled (FALSE)</span>
+                <span><strong>5 services (1.7%)</strong></span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill red" style="width: 1.7%;">1.7%</div>
+            </div>
+
+            <div class="progress-label">
+                <span>⚪ N/A</span>
+                <span><strong>142 services (47.2%)</strong></span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill orange" style="width: 47.2%;">47.2%</div>
+            </div>
+
+            <!-- Pie Chart -->
+            <div class="pie-chart">
+                <svg viewBox="0 0 200 200" width="300" height="300">
+                    <!-- Mesh Enabled - Green (51.2% = 184.32 degrees) -->
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#38ef7d" stroke-width="40"
+                            stroke-dasharray="256.8 512" transform="rotate(-90 100 100)"/>
+                    <!-- Mesh Disabled - Red (1.7% = 6.12 degrees) -->
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#f45c43" stroke-width="40"
+                            stroke-dasharray="8.5 512" stroke-dashoffset="-256.8" transform="rotate(-90 100 100)"/>
+                    <!-- N/A - Orange (47.2% = 169.92 degrees) -->
+                    <circle cx="100" cy="100" r="80" fill="none" stroke="#edde5d" stroke-width="40"
+                            stroke-dasharray="236.6 512" stroke-dashoffset="-265.3" transform="rotate(-90 100 100)"/>
+                    <text x="100" y="105" text-anchor="middle" font-size="24" font-weight="bold" fill="#333">51.2%</text>
+                    <text x="100" y="125" text-anchor="middle" font-size="12" fill="#666">Mesh Enabled</text>
+                </svg>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #38ef7d;"></div>
+                    <span>✅ Mesh Enabled (154)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #f45c43;"></div>
+                    <span>❌ Mesh Disabled (5)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #edde5d;"></div>
+                    <span>⚪ N/A (142)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- STP Leader Performance -->
+        <div class="table-container">
+            <div class="chart-title">👥 Performance by STP Leader</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>STP Leader</th>
+                        <th>Total Services</th>
+                        <th>Mesh Enabled</th>
+                        <th>Mesh Adoption %</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Ramya Subramani</strong> 🏆</td>
+                        <td>9</td>
+                        <td>7</td>
+                        <td><strong>78%</strong></td>
+                        <td><span class="badge success">Excellent</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wolfgang Krause</strong></td>
+                        <td>13</td>
+                        <td>9</td>
+                        <td><strong>69%</strong></td>
+                        <td><span class="badge success">Good</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ajith Jayamohan</strong></td>
+                        <td>78</td>
+                        <td>47</td>
+                        <td><strong>60%</strong></td>
+                        <td><span class="badge success">Good</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Satish Raghunath</strong></td>
+                        <td>68</td>
+                        <td>41</td>
+                        <td><strong>60%</strong></td>
+                        <td><span class="badge success">Good</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fiaz Hossain</strong></td>
+                        <td>57</td>
+                        <td>33</td>
+                        <td><strong>58%</strong></td>
+                        <td><span class="badge info">Fair</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Garren Bellew</strong></td>
+                        <td>6</td>
+                        <td>2</td>
+                        <td><strong>33%</strong></td>
+                        <td><span class="badge warning">Needs Attention</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Claudia Santoro</strong></td>
+                        <td>70</td>
+                        <td>15</td>
+                        <td><strong>21%</strong></td>
+                        <td><span class="badge warning">Needs Attention</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Adoption Status Breakdown -->
+        <div class="table-container">
+            <div class="chart-title">📋 Services by Adoption Status</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Status</th>
+                        <th>Count</th>
+                        <th>Percentage</th>
+                        <th>Badge</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Completed</strong></td>
+                        <td>164</td>
+                        <td>54.5%</td>
+                        <td><span class="badge success">Complete</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Path to Deprecation</strong></td>
+                        <td>71</td>
+                        <td>23.6%</td>
+                        <td><span class="badge info">Scheduled</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Can Not / Should Not Containerize</strong></td>
+                        <td>36</td>
+                        <td>12.0%</td>
+                        <td><span class="badge warning">N/A</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Completed with Clean-Up Required</strong></td>
+                        <td>24</td>
+                        <td>8.0%</td>
+                        <td><span class="badge info">Clean-up</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Not Started</strong></td>
+                        <td>3</td>
+                        <td>1.0%</td>
+                        <td><span class="badge warning">Pending</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Blocked</strong></td>
+                        <td>2</td>
+                        <td>0.7%</td>
+                        <td><span class="badge danger">Blocked</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>In Progress: Dev</strong></td>
+                        <td>1</td>
+                        <td>0.3%</td>
+                        <td><span class="badge info">In Progress</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Key Insights -->
+        <div class="insights">
+            <div class="chart-title">🎯 Key Insights & Recommendations</div>
+
+            <div class="insight-item">
+                <span class="icon">✅</span>
+                <strong>Good Mesh Progress:</strong> Over 50% of services (154/301) have Mesh enabled, showing solid adoption momentum.
+            </div>
+
+            <div class="insight-item">
+                <span class="icon">🔴</span>
+                <strong>5 Services with Mesh Disabled:</strong> These services (astmaster, cloudmap-scanners, privateconnect-inbound-dp, publicproxy, sitebridge) need investigation.
+            </div>
+
+            <div class="insight-item">
+                <span class="icon">🏆</span>
+                <strong>Top Performer:</strong> Ramya Subramani leads with 78% Mesh adoption across 9 services.
+            </div>
+
+            <div class="insight-item">
+                <span class="icon">⚠️</span>
+                <strong>Attention Needed:</strong> Claudia Santoro's services (70 total) show 21% Mesh adoption - opportunity for improvement.
+            </div>
+
+            <div class="insight-item">
+                <span class="icon">📈</span>
+                <strong>FKP Data Update Required:</strong> FKP adoption percentages need to be populated from Eng360 for complete tracking.
+            </div>
+
+            <div class="insight-item">
+                <span class="icon">✨</span>
+                <strong>Overall Status:</strong> 164 services (54.5%) marked as "Completed" - strong progress toward adoption goals.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>STP FKP & Mesh Adoption Dashboard</strong></p>
+            <p>Data Source: FKP & Mesh Onboarding - Commercial Sheet</p>
+            <p>Filters: Manager = Herman Kwong, Excluding Gia2h</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                📊 To refresh this dashboard, run: <code>python3 auto_dashboard_refresh.py your_eng360_export.csv</code>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Animate progress bars on load
+        window.addEventListener('load', function() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

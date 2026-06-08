@@ -418,25 +418,7 @@
             background: #f3f4f6;
             color: #6b7280;
         }
-        
-        .expand-all-btn {
-            background: white;
-            border: 2px solid #667eea;
-            color: #667eea;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 20px;
-        }
-        
-        .expand-all-btn:hover {
-            background: #667eea;
-            color: white;
-        }
-        
+
         .info-banner {
             background: #e3f2fd;
             border-left: 4px solid #2196f3;
@@ -571,11 +553,7 @@
                     </select>
                 </div>
             </div>
-            
-            <button class="expand-all-btn" onclick="toggleAllSections('commercial')">
-                Expand All Sections
-            </button>
-            
+
             <div id="commercial-leaders"></div>
             
             <div id="commercial-no-results" class="no-results" style="display: none;">
@@ -601,11 +579,7 @@
                     </select>
                 </div>
             </div>
-            
-            <button class="expand-all-btn" onclick="toggleAllSections('gia2h')">
-                Expand All Sections
-            </button>
-            
+
             <div id="gia2h-leaders"></div>
             
             <div id="gia2h-no-results" class="no-results" style="display: none;">
@@ -1623,32 +1597,7 @@
                 expandedState[viewName][leader] = true;
             }
         }
-        
-        // Toggle all sections
-        function toggleAllSections(viewName) {
-            const data = viewName === 'commercial' ? commercialData : gia2hData;
-            const allExpanded = Object.keys(data).every(leader => expandedState[viewName][leader]);
-            
-            Object.keys(data).forEach(leader => {
-                const body = document.getElementById(`${viewName}-${leader.replace(/\s+/g, '-')}-body`);
-                const icon = document.getElementById(`${viewName}-${leader.replace(/\s+/g, '-')}-icon`);
-                
-                if (allExpanded) {
-                    body.classList.remove('expanded');
-                    icon.classList.remove('expanded');
-                    expandedState[viewName][leader] = false;
-                } else {
-                    body.classList.add('expanded');
-                    icon.classList.add('expanded');
-                    expandedState[viewName][leader] = true;
-                }
-            });
-            
-            // Update button text
-            const btn = event.target;
-            btn.textContent = allExpanded ? 'Expand All Sections' : 'Collapse All Sections';
-        }
-        
+
         // Initialize the dashboard
         function init() {
             initView('commercial', commercialData);

@@ -492,6 +492,22 @@
             border-radius: 50%;
             flex-shrink: 0;
         }
+    
+        /* TABLE LAYOUT STYLES */
+        .table-wrapper { background: white; border-radius: 10px; overflow-x: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        .services-table { width: 100%; border-collapse: collapse; }
+        .services-table thead { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; }
+        .services-table th { padding: 12px 15px; text-align: left; font-weight: 600; font-size: 0.9em; cursor: pointer; user-select: none; white-space: nowrap; }
+        .services-table th:hover { background: rgba(255,255,255,0.1); }
+        .services-table td { padding: 10px 15px; border-bottom: 1px solid #e8e8e8; vertical-align: top; }
+        .services-table tr:hover { background: #f8f9ff; }
+        .eta-badge { display: inline-block; padding: 4px 10px; border-radius: 12px; font-size: 0.85em; font-weight: 600; white-space: nowrap; }
+        .eta-q2 { background: #fee; color: #c00; }
+        .eta-q3 { background: #ffeaa7; color: #d63031; }
+        .eta-q4 { background: #dfe6e9; color: #2d3436; }
+        .eta-fy28 { background: #d8e3ff; color: #4263eb; }
+        .eta-tbd { background: #f0f0f0; color: #999; font-style: italic; }
+
     </style>
 </head>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
@@ -1087,66 +1103,86 @@
             `;
         }
         
-        // Render leader sections
+        // Render leader sections (TABLE LAYOUT)
         function renderLeaderSections(viewName, groupedData) {
             const container = document.getElementById(`${viewName}-leaders`);
-            
-            // Sort leaders alphabetically
-            const sortedLeaders = Object.keys(groupedData).sort();
-            
-            container.innerHTML = sortedLeaders.map(leader => {
-                const services = groupedData[leader];
-                const leaderId = leader.replace(/\s+/g, '-');
-                
-                return `
-                    <div class="leader-section">
-                        <div class="leader-header" onclick="toggleLeaderSection('${viewName}', '${leader}')">
-                            <div class="leader-name">👤 ${leader}</div>
-                            <div style="display: flex; gap: 15px; align-items: center;">
-                                <div class="leader-count">${services.length} service${services.length !== 1 ? 's' : ''}</div>
-                                <div class="toggle-icon" id="${viewName}-${leaderId}-icon">▼</div>
-                            </div>
-                        </div>
-                        <div class="leader-body" id="${viewName}-${leaderId}-body">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Service Name</th>
-                                        <th>Decomm ETA</th>
-                                        <th>GUS References</th>
-                                        <th>TD Status</th>
-                                        <th>Comments</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    ${services.map(service => `
-                                        <tr>
-                                            <td class="service-name">${service['Service Name']}</td>
-                                            <td class="eta-cell">${service['Decomm ETA'] || 'N/A'}</td>
-                                            <td>${formatGusRefs(viewName, service['Service Name'], service['GUS References'])}</td>
-                                            <td class="td-status-cell">${formatTdStatus(viewName, service['Service Name'], service['GUS References'])}</td>
-                                            <td class="comments-cell">${service['Comments']}</td>
-                                        </tr>
-                                    `).join('')}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            
-            // Initialize expanded state
-            sortedLeaders.forEach(leader => {
-                expandedState[viewName][leader] = false;
-            });
-            
-            // Update button text for edit buttons
+
+            // Flatten data
+            const allServices = [];
             Object.keys(groupedData).forEach(leader => {
                 groupedData[leader].forEach(service => {
-                    const key = `${viewName}-${service['Service Name']}`;
-                    editingGus[key] = false;
+                    allServices.push({...service, leader});
                 });
             });
+
+            allServices.sort((a, b) => a['Service Name'].localeCompare(b['Service Name']));
+
+            const tableHTML = `
+                <div class="table-wrapper">
+                    <table class="services-table">
+                        <thead>
+                            <tr>
+                                <th onclick="sortTableBy('${viewName}', 'leader')">STP Leader ⇅</th>
+                                <th onclick="sortTableBy('${viewName}', 'service')">Service Name ⇅</th>
+                                <th onclick="sortTableBy('${viewName}', 'eta')">Decomm ETA ⇅</th>
+                                <th>GUS References</th>
+                                <th>TD Status</th>
+                                <th style="max-width:300px">Comments</th>
+                            </tr>
+                        </thead>
+                        <tbody id="${viewName}-tbody">
+                            ${allServices.map(s => renderRow(viewName, s)).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            container.innerHTML = tableHTML;
+        }
+
+        function renderRow(viewName, service) {
+            const name = service['Service Name'];
+            const leader = service.leader;
+            const eta = service['Decomm ETA'] || 'TBD';
+            const refs = service['GUS References'] || [];
+            const comments = service['Comments'] || '';
+            const shortComments = comments ? (comments.length > 100 ? comments.substring(0,100)+'...' : comments) : '<em style="color:#999">None</em>';
+
+            return `
+                <tr data-leader="${leader}" data-service="${name}" data-eta="${eta}">
+                    <td style="white-space:nowrap">${leader}</td>
+                    <td><strong>${name}</strong></td>
+                    <td>${formatETABadge(eta)}</td>
+                    <td>${formatGusRefs(viewName, name, refs)}</td>
+                    <td>${formatTdStatus(viewName, name, refs)}</td>
+                    <td style="font-size:0.85em;max-width:300px">${shortComments}</td>
+                </tr>
+            `;
+        }
+
+        function formatETABadge(eta) {
+            const e = eta.toLowerCase();
+            let cls = 'eta-default';
+            if (e.includes('q2')) cls = 'eta-q2';
+            else if (e.includes('q3')) cls = 'eta-q3';
+            else if (e.includes('q4')) cls = 'eta-q4';
+            else if (e.includes('fy28')) cls = 'eta-fy28';
+            else if (eta === 'TBD') cls = 'eta-tbd';
+            return `<span class="eta-badge ${cls}">${eta}</span>`;
+        }
+
+        let sortState = {commercial: {col: null, dir: 'asc'}, gia2h: {col: null, dir: 'asc'}};
+        function sortTableBy(viewName, col) {
+            const state = sortState[viewName];
+            if (state.col === col) state.dir = state.dir === 'asc' ? 'desc' : 'asc';
+            else { state.col = col; state.dir = 'asc'; }
+
+            const tbody = document.getElementById(`${viewName}-tbody`);
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            rows.sort((a, b) => {
+                const cmp = a.dataset[col].localeCompare(b.dataset[col]);
+                return state.dir === 'asc' ? cmp : -cmp;
+            });
+            rows.forEach(r => tbody.appendChild(r));
         }
         
         // Filter data and re-render

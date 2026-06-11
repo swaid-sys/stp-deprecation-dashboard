@@ -692,20 +692,20 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "cloudmap-api",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326018"
 ],
-"Comments": "4/13: These are with FDT teams to decommission and remove from Falcon. Nitro requests have been raised.\n3/30: On track for end-March."
+"Comments": "6/9: TD Target Build updated from 264 to 266.\n4/13: These are with FDT teams to decommission and remove from Falcon. Nitro requests have been raised.\n3/30: On track for end-March."
 },
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "cloudmap-scanners",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326019"
 ],
-"Comments": "4/13: These are with FDT teams to decommission and remove from Falcon. Nitro requests have been raised.\n3/30: On track for end-March."
+"Comments": "6/9: TD Target Build updated from 264 to 266.\n4/13: These are with FDT teams to decommission and remove from Falcon. Nitro requests have been raised.\n3/30: On track for end-March."
 },
 {
 "STP Leader": "Ajith Jayamohan",
@@ -756,11 +756,11 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "defender",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326025"
 ],
-"Comments": "3/4: on track for q1 deprecation."
+"Comments": "6/10: TD Target Build updated from 264 to 266.\n3/4: on track for q1 deprecation."
 },
 {
 "STP Leader": "Ajith Jayamohan",
@@ -828,11 +828,11 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "kraken",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326027"
 ],
-"Comments": "3/23: Might slip into May."
+"Comments": "6/9: TD Target Build updated from 264 to 266.\n3/23: Might slip into May."
 },
 {
 "STP Leader": "Ajith Jayamohan",
@@ -1312,13 +1312,13 @@
 {
 "STP Leader": "Fiaz Hossain",
 "Service Name": "vault-version-publisher",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326015",
 "W-21056533",
 "W-19803395"
 ],
-"Comments": "3/24: RADX org is building something centrally to help all teams with their decomm/destroy needs. Team has been advised to wait for the RADX solution.\n3/9: Moved out of 262. Team to come back with revised timeline after release planning during week of Mar 16.\n1/27: Follow W-21056533 to track this service's decomm. ETA is 2a.\n1/6: PKI closed the WI below. Vault is evaluating the decomm angle and have raised a support ticket to the Falcon Decomm support team. (Slack)\n11/17: PKI associated WI (linked below) will be addressed in 12a.\n10/16: Team is waiting for PKI to stop using the service prior to Vault deprecating this service. See WI on PKI team here: W-19803395. Once this WI is done by PKI, Vault can deprecate the service.\n10/6: The Vault LT has proposed to put the below epic on hold, but Vault is waiting for the PKI team to stop using this service from their side. \n9/8: Service to be deprecated. This epic is used to track deprecation. ETA is end-Q3."
+"Comments": "6/11: TD Target Build updated from 264 to 266.\n3/24: RADX org is building something centrally to help all teams with their decomm/destroy needs. Team has been advised to wait for the RADX solution.\n3/9: Moved out of 262. Team to come back with revised timeline after release planning during week of Mar 16.\n1/27: Follow W-21056533 to track this service's decomm. ETA is 2a.\n1/6: PKI closed the WI below. Vault is evaluating the decomm angle and have raised a support ticket to the Falcon Decomm support team. (Slack)\n11/17: PKI associated WI (linked below) will be addressed in 12a.\n10/16: Team is waiting for PKI to stop using the service prior to Vault deprecating this service. See WI on PKI team here: W-19803395. Once this WI is done by PKI, Vault can deprecate the service.\n10/6: The Vault LT has proposed to put the below epic on hold, but Vault is waiting for the PKI team to stop using this service from their side. \n9/8: Service to be deprecated. This epic is used to track deprecation. ETA is end-Q3."
 }
 ],
 "Satish Raghunath": [
@@ -1881,7 +1881,23 @@
         // Initialize on page load
         init();
 
-        // ── Trend / Burn-Down Chart ─────────────────────────────────────────
+        // ══════════════════════════════════════════════════════════════════════
+        // ── Trend / Burn-Down Chart ───────────────────────────────────────────
+        // ══════════════════════════════════════════════════════════════════════
+        // This chart displays three separate lines:
+        //
+        // 1. ACTUAL (solid blue) - Historical confirmed data points
+        //    → Update the "historical" array as you confirm new data points
+        //
+        // 2. ORIGINAL PLAN (dashed green) - FROZEN BASELINE from early FY27 Q2
+        //    → This line must NEVER change, even if projections or service counts change
+        //    → It serves as the reference point to compare actual progress against
+        //    → See the "originalPlan" array below with ⚠️ DO NOT MODIFY warning
+        //
+        // 3. PROJECTED (dashed purple) - Current trajectory based on recent progress
+        //    → Update the "projected" array when deprecation timelines change
+        //    → This reflects your CURRENT best estimate
+        // ══════════════════════════════════════════════════════════════════════
         (function buildChart() {
             // Quarter-end drop schedule (derived from the live data above)
             // FY quarter calendar (Salesforce):
@@ -1892,10 +1908,20 @@
             //   FY28 Q2: May 1 – Jul 31 2027
             //   FY28 Q3: Aug 1 – Oct 31 2027
 
-            // ── Original Plan (hardcoded from FY27 Q2 baseline) ─────────────
-            // This represents the original plan as of FY27 Q2 when the dashboard was created
+            // ═══════════════════════════════════════════════════════════════════
+            // ⚠️  STATIC BASELINE - DO NOT MODIFY ⚠️
+            // ═══════════════════════════════════════════════════════════════════
+            // This "Original Plan" represents the baseline snapshot from early FY27 Q2
+            // (May 26, 2026) and must remain FROZEN to serve as a historical reference.
+            //
+            // Even if deprecation projections change or the total number of services
+            // changes, this array should NEVER be updated. It exists to show what we
+            // originally intended to achieve, so we can compare actual progress against it.
+            //
+            // If you need to update projections, modify the "projected" array below instead.
+            // ═══════════════════════════════════════════════════════════════════
             const originalPlan = [
-                { label: 'May 26',           date: '2026-05-26', count: 74 },  // baseline
+                { label: 'May 26',           date: '2026-05-26', count: 74 },  // baseline snapshot
                 { label: 'Jul 31\n(Q2 end)', date: '2026-07-31', count: 43,
                   breakdown: 'Q2 target: −28 services' },
                 { label: 'Oct 31\n(Q3 end)', date: '2026-10-31', count: 36,
@@ -1909,22 +1935,29 @@
                 { label: 'Oct 31\n(FY28 Q3)', date: '2027-10-31', count: 1,
                   breakdown: 'FY28 Q3 target: −1 service (1 TBD remains)' },
             ];
+            // ═══════════════════════════════════════════════════════════════════
 
             // ── Data points ────────────────────────────────────────────────
             // Historical (solid line)
             const historical = [
                 { label: 'May 26',  date: '2026-05-26', count: 74 },
                 { label: 'Jun 1',   date: '2026-06-01', count: 71 },
+                { label: 'Jun 11',  date: '2026-06-11', count: 71 },
             ];
 
-            // Projected quarter-end points (dashed continuation)
-            // 71 − 28 Q2-remaining = 43, then cascade by quarter
+            // ── Current Projected Plan (UPDATE THIS, NOT originalPlan) ──────────
+            // This represents the CURRENT projection based on recent progress.
+            // Update these values as deprecation timelines change or services are added/removed.
+            // The "Original Plan" above should remain frozen for comparison purposes.
+            // ────────────────────────────────────────────────────────────────────
+            // Updated 6/11: 5 services moved from Q2 to Q3 (TD Target Build 264→266)
+            // Current calculation: 71 − 23 Q2-remaining = 48, then cascade by quarter
             const projected = [
-                { label: 'Jun 1',          date: '2026-06-01', count: 71  }, // shared anchor
-                { label: 'Jul 31\n(Q2 end)',  date: '2026-07-31', count: 43,
-                  breakdown: 'Q2 target: −28 services' },
+                { label: 'Jun 11',         date: '2026-06-11', count: 71  }, // shared anchor
+                { label: 'Jul 31\n(Q2 end)',  date: '2026-07-31', count: 48,
+                  breakdown: 'Q2 target: −23 services (5 moved to Q3)' },
                 { label: 'Oct 31\n(Q3 end)',  date: '2026-10-31', count: 36,
-                  breakdown: 'Q3 target: −7 services' },
+                  breakdown: 'Q3 target: −12 services (7 original + 5 from Q2)' },
                 { label: 'Jan 31\n(Q4 end)',  date: '2027-01-31', count: 19,
                   breakdown: 'Q4 target: −17 services' },
                 { label: 'Apr 30\n(FY28 Q1)', date: '2027-04-30', count: 17,
@@ -1962,20 +1995,22 @@
             // ── Services dropping each quarter (for tooltips) ───────────────
             const quarterDrops = {
                 '2026-07-31': [
-                    'astcenter', 'bastionrestricted', 'cloudmap-api', 'cloudmap-scanners',
-                    'containersec-eks', 'containersec-infra', 'containersec-new', 'controlplane-ui',
-                    'cxbastionast', 'defender', 'eureka', 'kraken', 'midgard',
+                    'astcenter', 'bastionrestricted', 'containersec-eks', 'containersec-infra',
+                    'containersec-new', 'controlplane-ui', 'cxbastionast', 'eureka', 'midgard',
                     'supplychainsec-updates-pipeline', 'tc-service', 'tm-tool', 'tvm-db',
                     'tvm-db-automation', 'iamportal', 'jit-ssh-dummy', 'jit-sudo-dummy',
                     'offline-jumphost', 'pcsk-falcon-secds-sync-job', 'pcsk-firebom-sync-job',
-                    'pcsk-test-target', 'pra', 'prazk', 'quantumkgia2h', 'secds389',
+                    'pcsk-test-target', 'pra', 'prazk', 'quantumkgia2h',
                     'magister', 'pkicdp', 'safe-daemonset', 'secure-agility-xtraguard',
-                    'vault-version-publisher', 'onyx-engine-control-pod', 'web-violation-report'
-                    // Note: 8 of these 36 are already complete; 28 remain
+                    'onyx-engine-control-pod', 'web-violation-report'
+                    // Updated 6/11: 5 services moved to Q3 (cloudmap-api, cloudmap-scanners, defender, kraken, vault-version-publisher)
+                    // Note: 8 of these 31 are already complete; 23 remain
                 ],
                 '2026-10-31': [
                     'bulwark', 'matlock', 'radius', 'k2kblackjackjob',
-                    'safe-monitor (Commercial)', 'mta-gateway', 'safe-monitor (Gia2h)'
+                    'safe-monitor (Commercial)', 'mta-gateway', 'safe-monitor (Gia2h)',
+                    'cloudmap-api', 'cloudmap-scanners', 'defender', 'kraken', 'vault-version-publisher'
+                    // Updated 6/11: 5 services moved from Q2 due to TD Target Build changes (264→266)
                 ],
                 '2027-01-31': [
                     'dnr-k2p', 'dnr-k2s', 'dnr-molokai', 'dnr-normalizer', 'dnr-orion',

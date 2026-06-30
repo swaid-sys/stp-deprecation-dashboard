@@ -1973,23 +1973,24 @@
             // Update these values as deprecation timelines change or services are added/removed.
             // The "Original Plan" above should remain frozen for comparison purposes.
             // ────────────────────────────────────────────────────────────────────
-            // Updated 6/18: Reconciled with Google Sheets. Added threat-canvas-backend (Q2) and pkicanary (Q4)
-            // Current totals: 81 services (72 Commercial + 9 Gia2h)
-            // Breakdown: 31 Q2, 11 Q3, 19 Q4, 2 FY28 Q1, 16 FY28 Q2, 2 FY28 Q3
+            // Updated 6/30: Reconciled ETAs with Google Sheet
+            // Current totals: 78 services (73 Commercial + 5 Gia2h-only)
+            // Breakdown: 19 Q2, 17 Q3, 10 Q4, 3 FY28 Q1, 16 FY28 Q2, 2 FY28 Q3, 11 TBD
+            // Key changes: 5 services moved from Q2 to Q3; iamportal moved to FY28 Q1
             const projected = [
-                { label: 'Jun 18',         date: '2026-06-18', count: 81  }, // current baseline
-                { label: 'Jul 31\n(Q2 end)',  date: '2026-07-31', count: 50,
-                  breakdown: 'Q2 target: −31 services' },
-                { label: 'Oct 31\n(Q3 end)',  date: '2026-10-31', count: 39,
-                  breakdown: 'Q3 target: −11 services' },
-                { label: 'Jan 31\n(Q4 end)',  date: '2027-01-31', count: 20,
-                  breakdown: 'Q4 target: −19 services' },
-                { label: 'Apr 30\n(FY28 Q1)', date: '2027-04-30', count: 18,
-                  breakdown: 'FY28 Q1 target: −2 services' },
-                { label: 'Jul 31\n(FY28 Q2)', date: '2027-07-31', count: 2,
+                { label: 'Jun 30',         date: '2026-06-30', count: 78  }, // current baseline after reconciliation
+                { label: 'Jul 31\n(Q2 end)',  date: '2026-07-31', count: 59,
+                  breakdown: 'Q2 target: −19 services' },
+                { label: 'Oct 31\n(Q3 end)',  date: '2026-10-31', count: 42,
+                  breakdown: 'Q3 target: −17 services' },
+                { label: 'Jan 31\n(Q4 end)',  date: '2027-01-31', count: 32,
+                  breakdown: 'Q4 target: −10 services' },
+                { label: 'Apr 30\n(FY28 Q1)', date: '2027-04-30', count: 29,
+                  breakdown: 'FY28 Q1 target: −3 services' },
+                { label: 'Jul 31\n(FY28 Q2)', date: '2027-07-31', count: 13,
                   breakdown: 'FY28 Q2 target: −16 services' },
-                { label: 'Oct 31\n(FY28 Q3)', date: '2027-10-31', count: 1,
-                  breakdown: 'FY28 Q3 target: −1 service (1 TBD remains)' },
+                { label: 'Oct 31\n(FY28 Q3)', date: '2027-10-31', count: 11,
+                  breakdown: 'FY28 Q3 target: −2 services (11 TBD remain)' },
             ];
 
             // Build unified label list (union of all three series, in date order)

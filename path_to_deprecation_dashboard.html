@@ -1968,6 +1968,7 @@
                 { label: 'Jun 11',  date: '2026-06-11', count: 71 },
                 { label: 'Jun 18',  date: '2026-06-18', count: 81 },
                 { label: 'Jun 30',  date: '2026-06-30', count: 78 },  // Reconciled with Google Sheet
+                { label: 'Jul 14',  date: '2026-07-14', count: 81 },  // Updated with correct Gia2h ETAs
             ];
 
             // ── Current Projected Plan (UPDATE THIS, NOT originalPlan) ──────────
@@ -1977,23 +1978,24 @@
             // ────────────────────────────────────────────────────────────────────
             // Updated 6/30: Reconciled ETAs with Google Sheet
             // Updated 7/9: Moved cxbastionast from Q2 to Q3
-            // Current totals: 78 services (73 Commercial + 5 Gia2h-only)
-            // Breakdown: 18 Q2, 18 Q3, 10 Q4, 3 FY28 Q1, 16 FY28 Q2, 2 FY28 Q3, 11 TBD
-            // Key changes: 5 services moved from Q2 to Q3; iamportal moved to FY28 Q1; cxbastionast moved from Q2 to Q3
+            // Updated 7/14: Fixed Gia2h ETAs (dnr-connector, dnr-prism, pkicanary: TBD → FY27 Q4; seciamsvc: TBD → FY28 Q3)
+            // Current totals: 81 services (62 Commercial + 9 Gia2h-only + 10 both)
+            // Breakdown: 25 Q2, 16 Q3, 18 Q4, 3 FY28 Q1, 16 FY28 Q2, 2 FY28 Q3, 1 TBD
+            // Key changes: bastionrestricted moved Q2→Q3; cxbastionast moved Q3→Q2; 4 Gia2h services moved TBD to actual dates
             const projected = [
-                { label: 'Jun 30',         date: '2026-06-30', count: 78  }, // current baseline after reconciliation
-                { label: 'Jul 31\n(Q2 end)',  date: '2026-07-31', count: 60,
-                  breakdown: 'Q2 target: −18 services' },
-                { label: 'Oct 31\n(Q3 end)',  date: '2026-10-31', count: 42,
-                  breakdown: 'Q3 target: −18 services' },
-                { label: 'Jan 31\n(Q4 end)',  date: '2027-01-31', count: 32,
-                  breakdown: 'Q4 target: −10 services' },
-                { label: 'Apr 30\n(FY28 Q1)', date: '2027-04-30', count: 29,
+                { label: 'Jun 30',         date: '2026-06-30', count: 81  }, // current baseline after reconciliation
+                { label: 'Jul 31\n(Q2 end)',  date: '2026-07-31', count: 56,
+                  breakdown: 'Q2 target: −25 services' },
+                { label: 'Oct 31\n(Q3 end)',  date: '2026-10-31', count: 40,
+                  breakdown: 'Q3 target: −16 services' },
+                { label: 'Jan 31\n(Q4 end)',  date: '2027-01-31', count: 22,
+                  breakdown: 'Q4 target: −18 services' },
+                { label: 'Apr 30\n(FY28 Q1)', date: '2027-04-30', count: 19,
                   breakdown: 'FY28 Q1 target: −3 services' },
-                { label: 'Jul 31\n(FY28 Q2)', date: '2027-07-31', count: 13,
+                { label: 'Jul 31\n(FY28 Q2)', date: '2027-07-31', count: 3,
                   breakdown: 'FY28 Q2 target: −16 services' },
-                { label: 'Oct 31\n(FY28 Q3)', date: '2027-10-31', count: 11,
-                  breakdown: 'FY28 Q3 target: −2 services (11 TBD remain)' },
+                { label: 'Oct 31\n(FY28 Q3)', date: '2027-10-31', count: 1,
+                  breakdown: 'FY28 Q3 target: −2 services (1 TBD remains: dnr-fsnormalizer)' },
             ];
 
             // Build unified label list (union of all three series, in date order)
@@ -2023,34 +2025,34 @@
             // ── Services dropping each quarter (for tooltips) ───────────────
             const quarterDrops = {
                 '2026-07-31': [
-                    'astcenter', 'bastionrestricted', 'containersec-eks', 'containersec-infra',
-                    'containersec-new', 'controlplane-ui', 'eureka', 'midgard',
+                    'astcenter', 'containersec-eks', 'containersec-infra',
+                    'containersec-new', 'controlplane-ui', 'cxbastionast', 'eureka', 'midgard',
                     'supplychainsec-updates-pipeline', 'tc-service', 'threat-canvas-backend', 'tm-tool', 'tvm-db',
-                    'tvm-db-automation', 'iamportal', 'jit-ssh-dummy', 'jit-sudo-dummy',
+                    'tvm-db-automation', 'jit-ssh-dummy', 'jit-sudo-dummy',
                     'offline-jumphost', 'pcsk-falcon-secds-sync-job', 'pcsk-firebom-sync-job',
-                    'pcsk-test-target', 'pra', 'prazk', 'quantumkgia2h',
-                    'magister', 'pkicdp', 'safe-daemonset', 'secure-agility-xtraguard',
+                    'pcsk-test-target', 'magister', 'pkicdp', 'safe-daemonset',
                     'onyx-engine-control-pod', 'web-violation-report'
-                    // Updated 7/9: Moved cxbastionast to Q3
-                    // Total Q2 services: 30
+                    // Updated 7/14: Moved bastionrestricted to Q3, moved cxbastionast back to Q2
+                    // Total Q2 services: 25
                 ],
                 '2026-10-31': [
-                    'bulwark', 'matlock', 'radius', 'k2kblackjackjob',
-                    'safe-monitor (Commercial)', 'mta-gateway', 'safe-monitor (Gia2h)',
-                    'cloudmap-api', 'cloudmap-scanners', 'kraken', 'vault-version-publisher', 'cxbastionast'
-                    // Updated 7/9: Added cxbastionast (moved from Q2)
-                    // Total Q3 services: 12
+                    'bastionrestricted', 'bulwark', 'cloudmap-api', 'cloudmap-scanners',
+                    'k2kblackjackjob', 'kraken', 'matlock', 'mta-gateway',
+                    'pra', 'prazk', 'quantumkgia2h', 'radius', 'safe-monitor (Commercial)',
+                    'secure-agility-xtraguard', 'vault-version-publisher', 'safe-monitor (Gia2h)'
+                    // Updated 7/14: Added bastionrestricted (moved from Q2), removed cxbastionast (moved to Q2)
+                    // Total Q3 services: 16
                 ],
                 '2027-01-31': [
                     'dnr-k2p', 'dnr-k2s', 'dnr-molokai', 'dnr-normalizer', 'dnr-orion',
                     'dnr-streamingsearch', 'kaaskeymaker', 'kaaskeywatcher', 'kaasmasterkdc',
                     'kaasslavekdc', 'kaaswebhook', 'certificateservices (Comm)',
-                    'pkicontroller (Comm)', 'dnr-connector', 'dnr-prism',
-                    'certificateservices (Gia2h)', 'pkicanary (Gia2h)', 'pkicontroller (Gia2h)'
-                    // Updated 6/18: Added pkicanary (Gia2h)
-                    // Total Q4 services: 19
+                    'pkicontroller (Comm)', 'certificateservices (Gia2h)', 'pkicontroller (Gia2h)',
+                    'dnr-connector (Gia2h)', 'dnr-prism (Gia2h)', 'pkicanary (Gia2h)'
+                    // Updated 7/14: Added dnr-connector, dnr-prism, pkicanary (moved from TBD)
+                    // Total Q4 services: 15 (3 Commercial + 12 Gia2h)
                 ],
-                '2027-04-30': [ 'pkiinfra (Commercial)', 'pkiinfra (Gia2h)' ],
+                '2027-04-30': [ 'iamportal (Commercial)', 'pkiinfra (Commercial)', 'pkiinfra (Gia2h)' ],
                 '2027-07-31': [
                     'cag-bigip', 'cag-bootstrap', 'cag-caas', 'cag-cbatch',
                     'cag-changecourier-importer', 'cag-cloudmonitor', 'cag-coreapp',
@@ -2058,7 +2060,7 @@
                     'cag-fileforce', 'cag-mq', 'cag-search', 'cag-secret-seeding', 'secds'
                     // Total FY28 Q2 services: 16
                 ],
-                '2027-10-31': [ 'secds389 (Commercial)', 'seciamsvc (Gia2h)', '+ 1 TBD (dnr-fsnormalizer)' ],
+                '2027-10-31': [ 'secds389 (Commercial)', 'seciamsvc (Gia2h)', '+ 1 TBD remaining (dnr-fsnormalizer)' ],
             };
 
             const ctx = document.getElementById('trendChart').getContext('2d');

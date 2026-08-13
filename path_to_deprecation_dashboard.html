@@ -505,7 +505,7 @@
         <div class="header">
             <h1>🚀 STP Service Deprecation Dashboard</h1>
             <p class="subtitle">Services marked for deprecation - Decomm ETAs and GUS References</p>
-            <p class="last-updated">Last updated: July 30, 2026</p>
+            <p class="last-updated">Last updated: August 13, 2026</p>
         </div>
 
         <!-- Trend Chart -->
@@ -696,7 +696,7 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "astcenter",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326004"
 ],
@@ -714,7 +714,7 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "cloudmap-scanners",
-"Decomm ETA": "FY27 Q3",
+"Decomm ETA": "FY28 Q3",
 "GUS References": [
 "TD-0326019"
 ],
@@ -723,7 +723,7 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "containersec-eks",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326020"
 ],
@@ -732,7 +732,7 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "containersec-infra",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326021"
 ],
@@ -740,8 +740,15 @@
 },
 {
 "STP Leader": "Ajith Jayamohan",
+"Service Name": "containersec-console",
+"Decomm ETA": "FY27 Q3",
+"GUS References": [],
+"Comments": "8/11: Removal will be triggered once the AMG/BOM sync issue is completed."
+},
+{
+"STP Leader": "Ajith Jayamohan",
 "Service Name": "containersec-new",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326022"
 ],
@@ -760,7 +767,7 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "cxbastionast",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326024"
 ],
@@ -841,7 +848,7 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "midgard",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326028"
 ],
@@ -850,7 +857,7 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "supplychainsec-updates-pipeline",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326029"
 ],
@@ -859,7 +866,7 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "tc-service",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326030"
 ],
@@ -868,7 +875,7 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "threat-canvas-backend",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326030"
 ],
@@ -877,7 +884,7 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "tm-tool",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326031"
 ],
@@ -886,7 +893,7 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "tvm-db",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326032"
 ],
@@ -895,7 +902,7 @@
 {
 "STP Leader": "Ajith Jayamohan",
 "Service Name": "tvm-db-automation",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326033"
 ],
@@ -1122,7 +1129,7 @@
 {
 "STP Leader": "Claudia Santoro",
 "Service Name": "offline-jumphost",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326066",
 "W-19893811",
@@ -1162,7 +1169,7 @@
 {
 "STP Leader": "Claudia Santoro",
 "Service Name": "pcsk-test-target",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326075",
 "W-19893532",
@@ -1240,7 +1247,7 @@
 {
 "STP Leader": "Fiaz Hossain",
 "Service Name": "k2kblackjackjob",
-"Decomm ETA": "FY27 Q3",
+"Decomm ETA": "FY27 Q4",
 "GUS References": [
 "TD-0326007"
 ],
@@ -1254,17 +1261,6 @@
 "TD-0326008"
 ],
 "Comments": "3/10: Traffic switch by Q2, actual decomm by Q2. Moving out 1 quarter.\n\n2/3: On track for q1 deprecation.\n\n11/4: Team confirmed Magister is already deprecated in Falcon commercial and Gia2h. It's currently serving traffic only in BJ-A (Cstage and CProd) and the migration to Raphty is currently in progress there and expected to complete in 2 months (end-FY26 Q4).\n\nThey still have some resources like S3 and AWS KMS keys in the Magister AWS account. These resources are used to store and encrypt the bootstrap certs. They plan to start migrating these to PKI account in 262, and post that will clean the service instances from the BOM."
-},
-{
-"STP Leader": "Fiaz Hossain",
-"Service Name": "pkicdp",
-"Decomm ETA": "FY27 Q2",
-"GUS References": [
-"TD-0326013",
-"W-21137531",
-"W-20282961"
-],
-"Comments": "4/21: We are getting change case approved for decom, so things are moving, but little tight. Moving from FY27 Q1 to FY27 Q2.\n\n3/23: Convo with Falcon Decomm team in progress to complete this decomm.\n\n2/16: See W-21137531.\n\n1/8: Timeline moving from end-Jan to end-Feb. See Nitro-0001053\n\n11/19: pkicdp on track for q4.\n\nMigration managed as part of the Security on FKP program. \n\n9/23: ETA changed from Q3 to Q4.\n\nDeprecation: W-20282961"
 },
 {
 "STP Leader": "Fiaz Hossain",
@@ -1287,7 +1283,7 @@
 {
 "STP Leader": "Fiaz Hossain",
 "Service Name": "safe-daemonset",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326011"
 ],
@@ -1340,7 +1336,7 @@
 {
 "STP Leader": "Wolfgang Krause",
 "Service Name": "onyx-engine-control-pod",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326016",
 "W-20434450",
@@ -1354,7 +1350,7 @@
 {
 "STP Leader": "Wolfgang Krause",
 "Service Name": "web-violation-report",
-"Decomm ETA": "FY27 Q2",
+"Decomm ETA": "FY27 Q3",
 "GUS References": [
 "TD-0326017",
 "W-19828360"
@@ -1952,6 +1948,7 @@
                 { label: 'Jun 30',  date: '2026-06-30', count: 81 },  // Reconciled - updated from 78 to 81
                 { label: 'Jul 14',  date: '2026-07-14', count: 81 },  // Updated with correct Gia2h ETAs
                 { label: 'Jul 30',  date: '2026-07-30', count: 79 },  // Commercial reconciliation: jit-ssh-dummy & jit-sudo-dummy dropped off Path to Deprecation (81 -> 79)
+                { label: 'Aug 13',  date: '2026-08-13', count: 79 },  // Commercial reconciliation: 70 Commercial + 9 Gia2h
             ];
 
             // ── Current Projected Plan (UPDATE THIS, NOT originalPlan) ──────────
@@ -1969,22 +1966,21 @@
             //   ETA changes: bulwark, dnr-orion, dnr-streamingsearch, mta-gateway (→ FY28 Q1);
             //   controlplane-ui, eureka, pcsk-falcon-secds-sync-job, pcsk-firebom-sync-job (→ FY27 Q3);
             //   magister, secure-agility-xtraguard (→ FY27 Q4)
+            // Updated 8/13 (Commercial): containersec-console added; pkicdp removed; 19 ETAs revised.
             // Current totals: 79 services (70 Commercial + 9 Gia2h)
-            // Breakdown: 18 Q2, 18 Q3, 15 Q4, 8 FY28 Q1, 18 FY28 Q2, 2 FY28 Q3, 0 TBD
+            // Breakdown: 0 Q2, 34 Q3, 16 Q4, 8 FY28 Q1, 18 FY28 Q2, 3 FY28 Q3, 0 TBD
             const projected = [
-                { label: 'Jul 30',         date: '2026-07-30', count: 79  }, // current baseline after reconciliation
-                { label: 'Jul 31\n(Q2 end)',  date: '2026-07-31', count: 61,
-                  breakdown: 'Q2 target: −18 services' },
-                { label: 'Oct 31\n(Q3 end)',  date: '2026-10-31', count: 43,
-                  breakdown: 'Q3 target: −18 services' },
-                { label: 'Jan 31\n(Q4 end)',  date: '2027-01-31', count: 28,
-                  breakdown: 'Q4 target: −15 services' },
-                { label: 'Apr 30\n(FY28 Q1)', date: '2027-04-30', count: 20,
+                { label: 'Aug 13',         date: '2026-08-13', count: 79  }, // current baseline after reconciliation
+                { label: 'Oct 31\n(Q3 end)',  date: '2026-10-31', count: 45,
+                  breakdown: 'Q3 target: −34 services' },
+                { label: 'Jan 31\n(Q4 end)',  date: '2027-01-31', count: 29,
+                  breakdown: 'Q4 target: −16 services' },
+                { label: 'Apr 30\n(FY28 Q1)', date: '2027-04-30', count: 21,
                   breakdown: 'FY28 Q1 target: −8 services' },
-                { label: 'Jul 31\n(FY28 Q2)', date: '2027-07-31', count: 2,
+                { label: 'Jul 31\n(FY28 Q2)', date: '2027-07-31', count: 3,
                   breakdown: 'FY28 Q2 target: −18 services' },
                 { label: 'Oct 31\n(FY28 Q3)', date: '2027-10-31', count: 0,
-                  breakdown: 'FY28 Q3 target: −2 services (0 TBD remain)' },
+                  breakdown: 'FY28 Q3 target: −3 services (0 TBD remain)' },
             ];
 
             // Build unified label list (union of all three series, in date order)
@@ -2013,39 +2009,28 @@
 
             // ── Services dropping each quarter (for tooltips) ───────────────
             const quarterDrops = {
-                '2026-07-31': [
-                    'astcenter', 'containersec-eks', 'containersec-infra',
-                    'containersec-new', 'cxbastionast', 'midgard',
-                    'supplychainsec-updates-pipeline', 'tc-service', 'threat-canvas-backend', 'tm-tool', 'tvm-db',
-                    'tvm-db-automation',
-                    'offline-jumphost', 'pcsk-test-target', 'pkicdp', 'safe-daemonset',
-                    'onyx-engine-control-pod', 'web-violation-report'
-                    // Updated 7/30 (Commercial): jit-ssh-dummy & jit-sudo-dummy removed (no longer Path to Deprecation).
-                    //   controlplane-ui, eureka, pcsk-falcon-secds-sync-job, pcsk-firebom-sync-job moved to Q3.
-                    //   magister moved to Q4.
-                    // Total Q2 services: 18
-                ],
                 '2026-10-31': [
-                    'bastionrestricted', 'cloudmap-api', 'cloudmap-scanners', 'controlplane-ui',
-                    'eureka', 'k2kblackjackjob', 'kraken', 'matlock',
+                    'astcenter', 'bastionrestricted', 'cloudmap-api', 'containersec-eks',
+                    'containersec-infra', 'containersec-console', 'containersec-new', 'controlplane-ui',
+                    'cxbastionast', 'eureka', 'kraken', 'midgard', 'supplychainsec-updates-pipeline',
+                    'tc-service', 'threat-canvas-backend', 'tm-tool', 'tvm-db', 'tvm-db-automation',
+                    'matlock', 'offline-jumphost', 'pcsk-test-target',
                     'pcsk-falcon-secds-sync-job', 'pcsk-firebom-sync-job',
                     'pra', 'prazk', 'quantumkgia2h', 'radius', 'safe-monitor (Commercial)',
-                    'vault-version-publisher', 'safe-monitor (Gia2h)',
-                    'dnr-fsnormalizer (Gia2h)'
-                    // Updated 7/30 (Commercial): Added controlplane-ui, eureka, pcsk-falcon-secds-sync-job,
-                    //   pcsk-firebom-sync-job (moved from Q2). Removed bulwark & mta-gateway (moved to FY28 Q1)
-                    //   and secure-agility-xtraguard (moved to Q4).
-                    // Total Q3 services: 18
+                    'safe-daemonset', 'vault-version-publisher', 'onyx-engine-control-pod',
+                    'web-violation-report', 'safe-monitor (Gia2h)', 'dnr-fsnormalizer (Gia2h)'
+                    // Total Q3 services: 34 (32 Commercial + 2 Gia2h)
                 ],
                 '2027-01-31': [
                     'dnr-k2p', 'dnr-k2s', 'dnr-molokai', 'dnr-normalizer',
                     'kaaskeymaker', 'kaaskeywatcher', 'kaasmasterkdc',
                     'kaasslavekdc', 'kaaswebhook', 'certificateservices (Comm)',
-                    'pkicontroller (Comm)', 'certificateservices (Gia2h)', 'pkicontroller (Gia2h)',
+                    'pkicontroller (Comm)', 'k2kblackjackjob (Commercial)',
+                    'certificateservices (Gia2h)', 'pkicontroller (Gia2h)',
                     'magister (Commercial)', 'secure-agility-xtraguard (Commercial)'
                     // Updated 7/30 (Commercial): Added magister, secure-agility-xtraguard (moved from Q2/Q3).
                     //   Removed dnr-orion, dnr-streamingsearch (moved to FY28 Q1).
-                    // Total Q4 services: 15 (13 Commercial + 2 Gia2h)
+                    // Total Q4 services: 16 (14 Commercial + 2 Gia2h)
                 ],
                 '2027-04-30': [
                     'iamportal (Commercial)', 'pkiinfra (Commercial)', 'pkiinfra (Gia2h)',
@@ -2063,7 +2048,9 @@
                     'dnr-connector (Gia2h)', 'dnr-prism (Gia2h)'
                     // Total FY28 Q2 services: 18
                 ],
-                '2027-10-31': [ 'secds389 (Commercial)', 'seciamsvc (Gia2h)' ],
+                '2027-10-31': [
+                    'cloudmap-scanners (Commercial)', 'secds389 (Commercial)', 'seciamsvc (Gia2h)'
+                ],
             };
 
             const ctx = document.getElementById('trendChart').getContext('2d');

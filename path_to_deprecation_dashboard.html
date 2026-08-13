@@ -2070,7 +2070,8 @@
                             borderWidth: 3,
                             tension: 0.3,
                             fill: false,
-                            spanGaps: false,
+                            // Bridge dates that exist only in the Original Plan or Projected series.
+                            spanGaps: true,
                         },
                         {
                             label: 'Original Plan',
